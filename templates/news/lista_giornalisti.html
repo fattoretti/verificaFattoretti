@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block contenuti %}
+    {% for post in newsgiornalistimodel_list %}
+        <p>{{forloop.counter}}){{ post.nome }}</a></p>
+    {% endfor %}
+{% endblock contenuti %}
