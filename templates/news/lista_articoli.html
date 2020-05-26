@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 {% block contenuti %}
-    {% for articoli in newsarticolimodel_list %}
-        <p>{{forloop.counter}}){{ articoli.titolo }}</a><br>
+    {% if giornalista %}
+        <h5  class="my-3" >Elenco degli articoli di {{ giornalista.nome }}:</h5>
+    {% else %}
+        <h5  class="my-3" >Elenco di tutti gli articoli:</a></h5>
+    {% endif %}
+
+    {% for articolo in newsarticolimodel_list %}
+        <p>{{forloop.counter}}){{ articolo.titolo }}</a><br>
         {{ articoli.contenuto }}
-        <small>({{ articoli.autore }})</a></small> </p>
+        <small>({{ articolo.autore }})</a></small> </p>
     {% endfor %}
 {% endblock contenuti %}
